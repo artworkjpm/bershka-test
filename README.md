@@ -1,5 +1,5 @@
 # vuex-john
-
+Hosted here https://bershka-test-bc29d3.netlify.com/
 > A Vue.js project
 
 ## Build Setup
