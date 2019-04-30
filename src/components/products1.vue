@@ -79,12 +79,6 @@ $orange: #e8800c;
       color: red;
       text-decoration: line-through;
     }
-    .column {
-    }
-    .name {
-    }
-    .price {
-    }
     .name,
     .price,
     p {
@@ -93,7 +87,7 @@ $orange: #e8800c;
   }
 }
 
-@media (max-width: 1400px) and (min-width: 601px) {
+@media (max-width: 1200px) and (min-width: 601px) {
   .main-wrapper .hold-image {
     display: block;
     margin-right: 1em;
@@ -105,12 +99,19 @@ $orange: #e8800c;
 @media (max-width: 600px) {
   .main-wrapper .hold-image {
     display: block;
+    margin: unset;
     margin-right: 1em;
     width: unset;
+    
+    .row {
+      display: block;
+    }
+    
   }
   img {
     width: 200px;
     margin-top: 2em;
   }
+  
 }
 </style>
