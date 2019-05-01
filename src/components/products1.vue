@@ -1,32 +1,25 @@
 <template>
-  <!-- <div id="products1">
-    <div class="orange">
-      <h1>Most popular products in 2019</h1>
-    </div> -->
-    <div class="main-wrapper">
-      <div class="hold-image" v-for="(product, index) in products">
-        <div class="row">
-          <div class="column">
-            <img :src="product.imgName" width="300">
-          </div>
-          <div class="column">
-            <h2 class="name">{{ product.name}}</h2>
-            <p>{{ product.text}}</p>
-            <h2 class="price" v-bind:class="{ crossout: activeIndex === index }">€{{ product.price}}</h2>
-            <h2
-              class="price red1"
-              v-if="activeIndex === index"
-            >€{{ parseInt(product.price * (1 - 0.10)) }}</h2>
-            <button class="button" @click="reducePriceThis(index)">Todays discount</button>
-          </div>
+  <div class="main-wrapper">
+    <div class="hold-image" v-for="(product, index) in products">
+      <div class="row">
+        <div class="column">
+          <img :src="product.imgName" width="300">
+        </div>
+        <div class="column">
+          <h2 class="name">{{ product.name}}</h2>
+          <p>{{ product.text}}</p>
+          <h2 class="price" v-bind:class="{ crossout: activeIndex === index }">€{{ product.price}}</h2>
+          <h2
+            class="price red1"
+            v-if="activeIndex === index"
+          >€{{ parseInt(product.price * (1 - 0.10)) }}</h2>
+          <button class="button" @click="reducePriceThis(index)">Todays discount</button>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import { mapActions } from "vuex";
-import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -38,20 +31,12 @@ export default {
     products() {
       //now using data from vuex store.js file, one single source of truth
       return this.$store.state.products;
-    },
-    ...mapGetters(["saleProducts", "specialDailyOffers"])
+    }
   },
   methods: {
-    doMath: function(index) {
-      this.$store.state.products.map(element => {
-        return element.index;
-      });
-    },
-    ...mapActions(["reducePrice", "specialForToday"]),
     reducePriceThis: function(index) {
       this.clicked = !this.clicked;
       this.activeIndex = index;
-      //return this.parseInt(product.price * (1 - 0.10));
     }
   }
 };
@@ -72,8 +57,8 @@ $orange: #e8800c;
     .crossout {
       text-decoration: line-through;
     }
-    .red1{
-        color: red;
+    .red1 {
+      color: red;
     }
     .name,
     .price,

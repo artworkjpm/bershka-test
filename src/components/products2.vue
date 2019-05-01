@@ -3,7 +3,7 @@
     <h1>Most popular products in 2018</h1>
     <button
       class="button"
-      @click.once="reducePrice(0.20); reducePriceThis()"
+      @click.once="reducePrice(0.20); clickedTrue()"
     >Special offer discount FOR TODAY ONLY</button>
     <ul>
       <li v-for="product in products2018">
@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     ...mapActions(["reducePrice", "specialForToday"]),
-    reducePriceThis: function() {
+    clickedTrue: function() {
       this.clicked = !this.clicked;
     }
   }
