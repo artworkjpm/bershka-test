@@ -3,12 +3,17 @@
     <h1>Most popular products in 2018</h1>
     <button
       class="button"
-      @click.once="reducePrice(4); reducePriceThis()"
+      @click.once="reducePrice(0.20); reducePriceThis()"
     >Special offer discount FOR TODAY ONLY</button>
     <ul>
-      <li v-for="product in saleProducts">
+      <li v-for="product in products2018">
         <span class="name">{{ product.name}}</span>
-        <span class="price" v-bind:class="{ crossout: clicked }">€{{ product.price}}</span>
+        <span
+          class="price"
+          v-if="clicked"
+          v-bind:class="{ crossedout: clicked }"
+        >€{{ product.originalprice }}</span>
+        <span class="price" v-bind:class="{ red: clicked }">€{{ parseInt(product.price) }}</span>
       </li>
     </ul>
   </div>
@@ -64,8 +69,11 @@ $orange: #e8800c;
   margin-left: 10px;
 }
 
-.crossout {
-  font-size: 1.5em;
+.red {
   color: red;
+  font-size: 1.2em;
+}
+.crossedout {
+  text-decoration: line-through;
 }
 </style>

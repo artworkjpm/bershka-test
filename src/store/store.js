@@ -81,43 +81,53 @@ export const store = new Vuex.Store({
     products2018: [
       {
         name: "1. Phone Accessories",
-        price: 8
+        price: 8,
+        originalprice: 8
       },
       {
         name: "2. Smartwatches",
-        price: 399
+        price: 399,
+        originalprice: 399
       },
       {
         name: "3. Shapewear",
-        price: 65
+        price: 65,
+        originalprice: 65
       },
       {
         name: "4. Facial Masks",
-        price: 8
+        price: 8,
+        originalprice: 8
       },
       {
         name: "5. Video Doorbells",
-        price: 299
+        price: 299,
+        originalprice: 299
       },
       {
         name: "6. Athleisure",
-        price: 25
+        price: 25,
+        originalprice: 25
       },
       {
         name: "7. Indoor Herb Planting Accessories",
-        price: 25
+        price: 25,
+        originalprice: 25
       },
       {
         name: "8. Flame Lamps",
-        price: 39
+        price: 39,
+        originalprice: 39
       },
       {
         name: "9. Instant Foods and Drinks",
-        price: 5.5
+        price: 5.5,
+        originalprice: 5
       },
       {
         name: "10. Maternity Dressess",
-        price: 55
+        price: 55,
+        originalprice: 55
       }
     ]
   },
@@ -135,7 +145,7 @@ export const store = new Vuex.Store({
   mutations: {
     reducePrice: (state, payload) => {
       state.products2018.forEach(product => {
-        product.price -= payload;
+        product.price *= 1 - payload;
       });
     }
   },
